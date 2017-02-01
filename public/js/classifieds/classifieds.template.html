@@ -1,0 +1,57 @@
+  <img id="header-image" src="../../assets/boulder-classifieds.jpg"/>
+
+  <main class="container">
+<!-- SEARCH / SORT  -->
+    <div class="row">
+      <input type="search" ng-model="$ctrl.search" class="form-control input-sm search-form" placeholder="Search classified ads...">
+    </div>
+
+    <div class="row">
+      <div class="chip" ng-click="$ctrl.sortClassifieds('Price')">
+        <a href="">Sort by Price</a>
+      </div>
+
+      <div class="chip" ng-click="$ctrl.sortClassifieds('Date')">
+        <a href="">Sort by Date</a>
+      </div>
+    </div>
+
+    <div class="row right">
+      <a class="waves-effect waves-light btn-large" ng-click="$ctrl.toggleForm()">Add Classified</a>
+    </div>
+
+    <!-- FORM TO POST A NEW CLASSIFIED AD  -->
+    <div class="row">
+      <form novalidate name="$ctrl.classifiedForm"  ng-if="$ctrl.formVisible" ng-submit="$ctrl.addClassified($ctrl.classifiedData.title, $ctrl.classifiedData.description, $ctrl.classifiedData.price, $ctrl.classifiedData.item_image)">
+          <input type="text" name="title" ng-model="$ctrl.classifiedData.title"/>
+          <label for="title">Ad Title</label>
+          <input type="text" name="description" ng-model="$ctrl.classifiedData.description"/>
+          <label for="description">Item Description</label>
+          <input type="text" name="price" ng-model="$ctrl.classifiedData.price"/>
+          <label for="price">Item Price</label>
+          <input type="text" name="item_image" ng-model="$ctrl.classifiedData.item_image"/>
+          <label for="item_image">Item Image (URL)</label>
+
+          <div class="row">
+            <button type="submit" class="waves-effect waves-light btn-large">Create Classified</button>
+          </div>
+      </form>
+    </div>
+
+
+  <!-- REPEAT OVER AND DISPLAY EACH CLASSIFIED AD  -->
+        <div class="card" ng-repeat="classified in $ctrl.classifieds | orderBy: $ctrl.sort | filter: $ctrl.search">
+          <div class="card-image">
+            <img ng-src="{{classified.item_image}}">
+            <span class="card-title">{{classified.title}}</span>
+          </div>
+          <div class="card-content">
+            <p>{{classified.description}}</p>
+            <p>{{classified.price | currency}}</p>
+          </div>
+
+          <div class="card-action">
+            <button class="waves-effect waves-teal btn-flat" ui-sref="edit({id: classified.id })">Edit | Delete Classified</button>
+          </div>
+        </div>
+    </main>
