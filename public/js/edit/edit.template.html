@@ -1,4 +1,3 @@
-<img id="header-image" src="../../assets/boulder-classifieds.jpg"/>
 
 <main class="container">
   <h2>Edit or Delete: {{$ctrl.classified.title}}</h2>
@@ -12,7 +11,7 @@
         <input type="text" name="price" ng-model="$ctrl.classified.price"/>
       <label for="item_image">Item Image (URL)</label>
         <input type="text" name="item_image" ng-model="$ctrl.classified.item_image" />
-        
+
       <div class="row">
         <a class="waves-effect blue waves-light btn-large" ng-click="$ctrl.patchClassified($ctrl.classified.title, $ctrl.classified.description, $ctrl.classified.price, $ctrl.classified.item_image)">Update Classified</a>
         <a class="waves-effect red waves-light btn-large right" ng-click="$ctrl.deleteClassified($ctrl.classified.id)">Delete Classified</a>

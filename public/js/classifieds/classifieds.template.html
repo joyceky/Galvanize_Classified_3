@@ -1,4 +1,3 @@
-  <img id="header-image" src="../../assets/boulder-classifieds.jpg"/>
 
   <main class="container">
 <!-- SEARCH / SORT  -->
@@ -38,9 +37,10 @@
       </form>
     </div>
 
-
   <!-- REPEAT OVER AND DISPLAY EACH CLASSIFIED AD  -->
-        <div class="card" ng-repeat="classified in $ctrl.classifieds | orderBy: $ctrl.sort | filter: $ctrl.search">
+  <div class="row">
+    <div class="col s4" ng-repeat="classified in $ctrl.classifieds | orderBy: $ctrl.sort | filter: $ctrl.search">
+        <div class="card">
           <div class="card-image">
             <img ng-src="{{classified.item_image}}">
             <span class="card-title">{{classified.title}}</span>
@@ -49,9 +49,10 @@
             <p>{{classified.description}}</p>
             <p>{{classified.price | currency}}</p>
           </div>
-
           <div class="card-action">
             <button class="waves-effect waves-teal btn-flat" ui-sref="edit({id: classified.id })">Edit | Delete Classified</button>
           </div>
         </div>
-    </main>
+      </div>
+    </div>
+  </main>
