@@ -13,5 +13,8 @@ angular.module('app')
 
   function controller($http) {
     var vm = this;
+    
+    $(".button-collapse").sideNav();
+
   }
   })();

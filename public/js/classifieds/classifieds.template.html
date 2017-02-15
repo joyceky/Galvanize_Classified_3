@@ -1,8 +1,11 @@
 
   <main class="container">
+    <div class="row" id="page-info">
+      <p class="center">Plant Talk allows you to identify and purchase plants near you!</p>
+    </div>
 <!-- SEARCH / SORT  -->
     <div class="row">
-      <input type="search" ng-model="$ctrl.search" class="form-control input-sm search-form" placeholder="Search classified ads...">
+      <input type="search" ng-model="$ctrl.search" class="form-control input-sm search-form" placeholder="Search for plants...">
     </div>
 
     <div class="row">
@@ -16,20 +19,20 @@
     </div>
 
     <div class="row right">
-      <a class="waves-effect waves-light btn-large" ng-click="$ctrl.toggleForm()">Add Classified</a>
+      <a class="waves-effect waves-light btn-large" id="add-plant-btn" ng-click="$ctrl.toggleForm()">Add a Plant</a>
     </div>
 
     <!-- FORM TO POST A NEW CLASSIFIED AD  -->
     <div class="row">
       <form novalidate name="$ctrl.classifiedForm"  ng-if="$ctrl.formVisible" ng-submit="$ctrl.addClassified($ctrl.classifiedData.title, $ctrl.classifiedData.description, $ctrl.classifiedData.price, $ctrl.classifiedData.item_image)">
           <input type="text" name="title" ng-model="$ctrl.classifiedData.title"/>
-          <label for="title">Ad Title</label>
+          <label for="title">Plant Name</label>
           <input type="text" name="description" ng-model="$ctrl.classifiedData.description"/>
-          <label for="description">Item Description</label>
+          <label for="description">Plant Description</label>
           <input type="text" name="price" ng-model="$ctrl.classifiedData.price"/>
-          <label for="price">Item Price</label>
+          <label for="price">Plant Price</label>
           <input type="text" name="item_image" ng-model="$ctrl.classifiedData.item_image"/>
-          <label for="item_image">Item Image (URL)</label>
+          <label for="item_image">Plant Image (URL)</label>
 
           <div class="row">
             <button type="submit" class="waves-effect waves-light btn-large">Create Classified</button>

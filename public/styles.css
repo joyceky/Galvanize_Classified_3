@@ -1,6 +1,29 @@
-#header-image {
-  width: 100%;
+body {
+  background-color: #f1f8e9;
 }
+
 img {
   height: 200px;
+}
+
+#brand-nav {
+  font-weight: 500;
+  font-size: 2.5em;
+}
+
+#page-info {
+  background-color: #b9f6ca;
+  border: 1px solid #00e676;
+  border-radius: 5px;
+  font-family: "Muli";
+  font-size: 2rem;
+  line-height: 35px;
+  color: #2e7d32;
+  width: 100%;
+  height: 15%;
+  margin: 15px;
+}
+
+#add-plant-btn {
+  background-color: #bcaaa4;
 }
