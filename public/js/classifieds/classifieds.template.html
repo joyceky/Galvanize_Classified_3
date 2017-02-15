@@ -35,18 +35,18 @@
           <label for="item_image">Plant Image (URL)</label>
 
           <div class="row">
-            <button type="submit" class="waves-effect waves-light btn-large">Create Classified</button>
+            <button type="submit" id="submit-plant-btn" class="waves-effect waves-light btn-large">Create Classified</button>
           </div>
       </form>
     </div>
 
   <!-- REPEAT OVER AND DISPLAY EACH CLASSIFIED AD  -->
-  <div class="row">
-    <div class="col s4" ng-repeat="classified in $ctrl.classifieds | orderBy: $ctrl.sort | filter: $ctrl.search">
-        <div class="card">
+  <div class="masonry">
+    <div ng-repeat="classified in $ctrl.classifieds | orderBy: $ctrl.sort | filter: $ctrl.search">
+        <div class="card item">
           <div class="card-image">
             <img ng-src="{{classified.item_image}}">
-            <span class="card-title">{{classified.title}}</span>
+            <span id="title" class="card-title">{{classified.title}}</span>
           </div>
           <div class="card-content">
             <p>{{classified.description}}</p>
